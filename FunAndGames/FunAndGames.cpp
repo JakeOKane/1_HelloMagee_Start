@@ -11,6 +11,7 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <stdlib.h>
 #include "myTimer.h"
 #include "myWait.h" 
 
@@ -18,16 +19,28 @@
 
 int main()
 {
-    int delay = 1000;
-
+    int delay = 5000;
     dc::myTimer timer;
+    int randomDelay = 0;
+
+    std::cout << "In this game you must guess how much time has passed in seconds.\n If you are within 1 second you win.";;
+    dcWait::wait(delay);
+    
+    
+    
+    system("cls");
+    randomDelay = rand() % 10 + 1;
+    std::cout << "Starting Now!!!" << "\\n\\ndelay is    " << randomDelay;
     timer.start();
+
+
+
     int counter = 0;
 
-    dcWait::wait(delay);
+    //dcWait::wait(delay);
 
-    std::cout << "Delay in Seconds: " << timer.elapsedSeconds() << std::endl;
-    std::cout << "Delay in Milliseconds: " << timer.elapsedMilliseconds() << std::endl;
+   // std::cout << "Delay in Seconds: " << timer.elapsedSeconds() << std::endl;
+    //std::cout << "Delay in Milliseconds: " << timer.elapsedMilliseconds() << std::endl;
 
     return 0;
 }
